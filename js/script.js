@@ -71,7 +71,7 @@ var quotes = [
 ];
 //Generate a random number 0 to 10(number of quotes), used random number as index of array
 function getRandomQuote() {
-  var getRandomNumber = Math.floor(Math.random() * quotes.length) + 1;
+  var getRandomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[getRandomNumber]; //to get random quotes.
 }
 
@@ -80,22 +80,16 @@ function printQuote() {
   var quoteProperties = "";
   quoteProperties = "<p class='quote'>" + randomQuoteObj.quote + "</p>";
   quoteProperties += "<p class='source'>" + randomQuoteObj.source;
-  if (randomQuoteObj.citation !== undefined) {
+  if (randomQuoteObj.citation) {
     quoteProperties +=
       "<span class='citation'>" + randomQuoteObj.citation + "</span>";
-  } else {
-    quoteProperties += "</p>";
-  }
-  if (randomQuoteObj.year !== undefined) {
+  } else if (randomQuoteObj.year) {
     quoteProperties += "<span class='year'>" + randomQuoteObj.year + "</span>";
-  } else {
-    quoteProperties += "</p>";
-  }
-  if (randomQuoteObj.tags !== undefined) {
+  } else if (randomQuoteObj.tags) {
     quoteProperties += "<span class='tags'>" + randomQuoteObj.tags + "</span>";
-  } else {
-    quoteProperties += "</p>";
   }
+
+  quoteProperties += "</p>";
 
   document.getElementById("quote-box").innerHTML = quoteProperties;
 

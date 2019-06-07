@@ -105,6 +105,10 @@ function printQuote() {
 
   document.body.style.backgroundColor = rgbColor; // random color background setter
 }
+
+//set quote on load
+printQuote();
+
 // change quote every 20 seconds
 setInterval(printQuote, 20000);
 

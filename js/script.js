@@ -83,9 +83,13 @@ function printQuote() {
   if (randomQuoteObj.citation) {
     quoteProperties +=
       "<span class='citation'>" + randomQuoteObj.citation + "</span>";
-  } else if (randomQuoteObj.year) {
+  }
+
+  if (randomQuoteObj.year) {
     quoteProperties += "<span class='year'>" + randomQuoteObj.year + "</span>";
-  } else if (randomQuoteObj.tags) {
+  }
+
+  if (randomQuoteObj.tags) {
     quoteProperties += "<span class='tags'>" + randomQuoteObj.tags + "</span>";
   }
 
